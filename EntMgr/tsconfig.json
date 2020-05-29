@@ -1,0 +1,23 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ES6",
+    "moduleResolution": "Node",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "strict": false,
+    "target": "ES6"
+  },
+  "exclude": [
+    "bin",
+    "node_modules",
+    "wwwroot"
+  ],
+  "include": [
+    "scripts/**/*.ts"
+  ]
+}
