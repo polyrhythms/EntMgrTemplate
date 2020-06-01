@@ -1,6 +1,6 @@
 using System;
 
-namespace Api
+namespace Common.Models
 {
     public class WeatherForecast
     {
