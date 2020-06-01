@@ -1,4 +1,4 @@
-import { jqtest } from "./library.js"
+import { SampleCodeTester } from "./library.js"
 
 class Student {
     fullName: string;
@@ -20,5 +20,7 @@ let user = new Student("Fred", "M.", "Smith");
 
 window.onload = () => {
     $("#ts-example").html(greeter(user));
-    jqtest.showMsg();
+    let tester = new SampleCodeTester();
+    tester.testJQuery();
+    tester.testApi();
 };

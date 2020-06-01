@@ -1,4 +1,4 @@
-import { jqtest } from "./library.js";
+import { SampleCodeTester } from "./library.js";
 class Student {
     constructor(firstName, middleInitial, lastName) {
         this.firstName = firstName;
@@ -13,6 +13,8 @@ function greeter(person) {
 let user = new Student("Fred", "M.", "Smith");
 window.onload = () => {
     $("#ts-example").html(greeter(user));
-    jqtest.showMsg();
+    let tester = new SampleCodeTester();
+    tester.testJQuery();
+    tester.testApi();
 };
 //# sourceMappingURL=app.js.map
