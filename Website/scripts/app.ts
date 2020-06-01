@@ -19,7 +19,7 @@ function greeter(person: Person) {
 let user = new Student("Fred", "M.", "Smith");
 
 window.onload = () => {
-    $("#ts-example").html(greeter(user));
+    $("#example1").html(greeter(user));
     let tester = new SampleCodeTester();
     tester.testJQuery();
     tester.testApi();

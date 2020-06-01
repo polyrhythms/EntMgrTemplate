@@ -4,15 +4,15 @@
 
     public testJQuery(): void {
         let version: any = jQuery.fn.jquery.toString();
-        let content: any = $("#ts-example-2")[0].innerHTML;
-        $("#ts-example-2")[0].innerHTML = content + " " + version;
+        let content: any = $("#example2").html();
+        $("#example2").html(content + " " + version);
     }
 
     public testApi(): void {
         let success = (forecasts: WeatherForecast[]) => {
             if (forecasts && forecasts.length > 0) {
                 for (let forecast of forecasts) {
-                    $("#ts-example-3 tr:last").after(
+                    $("#example3 tr:last").after(
                         '<tr><td>' + forecast.date +
                         '</td><td>' + forecast.temperatureC +
                         '</td><td>' + forecast.temperatureF +
