@@ -39,29 +39,20 @@ namespace Api
             {
                 options.Authority = domain;
                 options.Audience = Configuration["Auth0:ApiIdentifier"];
-                //options.TokenValidationParameters = new TokenValidationParameters
-                //{
-                //    NameClaimType = ClaimTypes.NameIdentifier
-                //};
             });
-
-            //services.AddAuthorization(options =>
-            //{
-            //    options.AddPolicy("read:users", policy => policy.Requirements.Add(
-            //        new HasScopeRequirement("read:users", domain)));
-            //});
-
-            //services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseAuthentication();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-//            app.UseStaticFiles();
+           
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
 
@@ -70,8 +61,6 @@ namespace Api
             app.UseCors("AllowSpecificOrigin");
 
             app.UseAuthorization();
-
-//            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
