@@ -47,13 +47,7 @@ namespace Api
         // needs to be before other calls, for example.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseAuthentication();
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("AllowSpecificOrigin");
             app.UseAuthorization();
