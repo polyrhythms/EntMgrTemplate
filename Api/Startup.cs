@@ -42,26 +42,21 @@ namespace Api
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to configure the 
+        // HTTP request pipeline. Order of some calls is important: UseAuthentication()
+        // needs to be before other calls, for example.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseAuthentication();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-           
-            app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseCors("AllowSpecificOrigin");
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
