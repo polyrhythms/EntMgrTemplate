@@ -1,4 +1,6 @@
-﻿import { SampleCodeTester } from "./library.js"
+﻿/// <reference path="declarations/kendo.all.d.ts" />
+
+import { SampleCodeTester } from "./library.js"
 
 class Student {
     fullName: string;
@@ -16,10 +18,17 @@ function greeter(person: Person) {
     return "Hello, " + person.firstName + " " + person.lastName;
 }
 
-let user = new Student("Fred", "M.", "Smith");
+let user = new Student("Ronald", "M.", "Jones");
 
 window.onload = () => {
     $("#example1").html(greeter(user));
+
+    $("#textbox").kendoTextBox({
+        label: {
+            content: "Full Name:"
+        }
+    });
+
     let tester = new SampleCodeTester();
     tester.testJQuery();
     tester.testApi();

@@ -30,15 +30,16 @@ namespace Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            var caller = new EntApiCaller("<AccessKey>", "<SecretKey>");
-            var entData = await caller.GetPreProdDataAsync("craig.beebe@siemens.com");
+            //var caller = new EntApiCaller("<AccessKey>", "<SecretKey>");
+            //var entData = await caller.GetPreProdDataAsync("craig.beebe@siemens.com");
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = entData.content[rng.Next(5)].customer.fullName // Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                //Summary = entData.content[rng.Next(5)].customer.fullName,
             })
             .ToArray();
         }

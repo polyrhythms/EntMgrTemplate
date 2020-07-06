@@ -18,7 +18,6 @@
                         '</td><td>' + forecast.temperatureF +
                         '</td><td>' + forecast.summary +
                         '</td></tr>');
-                    console.log(forecast.summary);
                 }
             }
         };
