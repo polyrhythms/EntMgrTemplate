@@ -3,18 +3,27 @@
 This file is the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
+"use strict";
 
 var gulp = require('gulp');
 var del = require('del');
 
-var paths = {
-    scripts: ['scripts/**/*.js', 'scripts/**/*.ts', 'scripts/**/*.map'],
+var jsSource = 'scripts/**/*.js';
+var tsSource = 'scripts/**/*.ts';
+var mapSource = 'scripts/**/*.map';
+
+var jsDestRoot = 'wwwroot/js/';
+var jsDest = jsDestRoot + '**/*';
+
+var sources = {
+    scripts: [jsSource, tsSource, mapSource],
 };
 
 gulp.task('clean', async function () {
-    return del(['wwwroot/js/**/*']);
+    return del([jsDest]);
 });
 
 gulp.task('default', async function () {
-    gulp.src(paths.scripts).pipe(gulp.dest('wwwroot/js'))
+    return gulp.src(sources.scripts)
+        .pipe(gulp.dest(jsDestRoot))
 });
